@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_z.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 14:04:58 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/08 17:12:56 by jhansen          ###   ########.fr       */
+/*   Created: 2019/07/08 16:26:42 by jhansen           #+#    #+#             */
+/*   Updated: 2019/07/08 16:38:20 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int		main(int argc, char **argv)
+int		ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (argc != 2)
-		write(1, "z", 2);
-	else
+	if (str)
 	{
-		while (argv[1][i] != '\0')
-		{
-			if (argv[1][i] == 'z')
-			{
-				write(1, "z", 2);
-				return (0);
-			}
+		while (str[i] != '\0')
 			i++;
-		}
 	}
-	write(1, "\n", 1);
+	return (i);
+}
+
+//DO NOT COMMIT ANYTHING BELOW
+
+#include <stdio.h>
+
+int		main(void)
+{
+	int		i;
+	char	*word;
+
+	i = 0;
+	word = "Jadon";
+	i = ft_strlen(word);
+	printf("%d", i);
 	return (0);
 }

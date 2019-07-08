@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_z.c                                            :+:      :+:    :+:   */
+/*   repeat_alpha.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 14:04:58 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/08 17:12:56 by jhansen          ###   ########.fr       */
+/*   Created: 2019/07/08 16:39:06 by jhansen           #+#    #+#             */
+/*   Updated: 2019/07/08 17:11:54 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,27 @@
 int		main(int argc, char **argv)
 {
 	int	i;
+	int	counter;
 
+	counter = 0;
 	i = 0;
-	if (argc != 2)
-		write(1, "z", 2);
-	else
+	if (argc == 2)
 	{
-		while (argv[1][i] != '\0')
+		while (argv[1][i])
 		{
-			if (argv[1][i] == 'z')
+			if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
 			{
-				write(1, "z", 2);
-				return (0);
+				counter = argv[1][i] - 'a';
+				while (counter-- > 0)
+					write(1, &argv[1][i], 1);
 			}
+			else if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
+			{
+				counter = argv[1][i] - 'A';
+				while (counter-- > 0)
+					write(1, &argv[1][i], 1);
+			}
+			write(1, &argv[1][i], 1);
 			i++;
 		}
 	}
