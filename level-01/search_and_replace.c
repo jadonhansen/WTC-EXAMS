@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   search_and_replace.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 15:53:24 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/09 12:09:26 by jhansen          ###   ########.fr       */
+/*   Created: 2019/07/09 10:54:03 by jhansen           #+#    #+#             */
+/*   Updated: 2019/07/09 11:25:42 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 
-char	*ft_strcpy(char *s1, char *s2)
+int		main(int argc, char **argv)
 {
-	int	i;
+	int		i;
+	char	c;
+	char	replace;
 
 	i = 0;
-	while (s2[i] != '\0')
+	if (argc == 4)
 	{
-		s1[i] = s2[i];
-		i++;
+		c = argv[2][0];
+		replace = argv[3][0];
+		while (argv[1][i] != '\0')
+		{
+			if (argv[1][i] == c)
+				write(1, &replace, 1);
+			else
+				write(1, &argv[1][i], 1);
+			i++;
+		}
 	}
-	s1[i] = '\0';
-	return (s1);
-}
-
-//DO NOT COMMIT ANYTHING BELOW
-
-#include <stdio.h>
-
-int		main(void)
-{
-	char	*str1;
-	char	*str2;
-
-	str1 = "Jadon";
-	str2 = (char *)malloc(sizeof(char) * 6);
-	str2 = ft_strcpy(str2, str1);
-	printf("%s", str2);
+	write(1, "\n", 1);
 	return (0);
 }
