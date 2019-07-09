@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/09 12:10:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/09 12:48:53 by jhansen          ###   ########.fr       */
+/*   Created: 2019/07/09 12:22:45 by jhansen           #+#    #+#             */
+/*   Updated: 2019/07/09 12:34:13 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		main(int argc, char **argv)
+void	ft_putstr(char *str)
 {
-	int	i;
-
-	i = 0;
-	if (argc == 2)
+	if (str)
 	{
-		while (argv[1][i] == ' ' || argv[1][i] == '\t')
-			i++;
-		while (argv[1][i] != '\0')
+		while (*str != '\0')
 		{
-			if (argv[1][i] == ' ' || argv[1][i] == '\t')
-				break;
-			write(1, &argv[1][i], 1);
-			i++;
+			write(1, &*str, 1);
+			str++;
 		}
 	}
-	write(1, "\n", 1);
+}
+
+//DO NOT INCLUDE BELOW
+
+int		main(void)
+{
+	char	*word;
+
+	word = "Jadon";
+	ft_putstr(word);
 	return (0);
 }

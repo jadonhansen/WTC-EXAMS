@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/09 12:10:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/09 12:48:53 by jhansen          ###   ########.fr       */
+/*   Created: 2019/07/09 12:35:05 by jhansen           #+#    #+#             */
+/*   Updated: 2019/07/09 12:44:27 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int		main(int argc, char **argv)
+void	ft_swap(int *a, int *b)
 {
-	int	i;
+	int	*c;
 
-	i = 0;
-	if (argc == 2)
-	{
-		while (argv[1][i] == ' ' || argv[1][i] == '\t')
-			i++;
-		while (argv[1][i] != '\0')
-		{
-			if (argv[1][i] == ' ' || argv[1][i] == '\t')
-				break;
-			write(1, &argv[1][i], 1);
-			i++;
-		}
-	}
-	write(1, "\n", 1);
-	return (0);
+	c = a;
+	a = b;
+	b = c;
 }
