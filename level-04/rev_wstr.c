@@ -6,15 +6,16 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 16:58:33 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/30 11:45:21 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/30 16:50:50 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	rev(char *s, int start)
+void	rev(char *s, int first)
 {
 	int	i;
+	int	start;
 
 	i = 0;
 	if (s[i])
@@ -26,7 +27,7 @@ void	rev(char *s, int start)
 			i++;
 		rev(&s[i], 0);
 		write(1, &s[start], i - start);
-		if (start > 0)
+		if (!first)
 			write(1, " ", 1);
 	}
 }
