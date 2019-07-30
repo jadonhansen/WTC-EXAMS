@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 14:09:25 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/29 15:34:29 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/30 16:59:43 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ char	*ft_itoa_base(int value, int base)
 	}
 	s = (char *)malloc(sizeof(char) * len);
 	s[len] = '\0';
+	if (value < 0 && base == 10)
+		s[0]= '-';
 	while (temp)
 	{
 		s[--len] = base_string[temp % base];
 		temp = temp / base;
 	}
-	if (value < 0 && base == 10)
-		s[0]= '-';
 	return (s);
 }
 
