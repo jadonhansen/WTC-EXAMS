@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 14:09:25 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/30 16:59:43 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/20 17:07:31 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_itoa_base(int value, int base)
 	temp = value;
 	if (value == 0)
 		return ("0");
+	//if (value == -2147483648)
+		//return ("-");
 	while (temp)
 	{
 		temp = temp / base;
@@ -38,7 +40,7 @@ char	*ft_itoa_base(int value, int base)
 	s = (char *)malloc(sizeof(char) * len);
 	s[len] = '\0';
 	if (value < 0 && base == 10)
-		s[0]= '-';
+		s[0] = '-';
 	while (temp)
 	{
 		s[--len] = base_string[temp % base];
@@ -56,8 +58,8 @@ int		main(void)
 	int num;
 	int	base;
 
-	base = 16;
-	num = -456;
+	base = 10;
+	num = -2147483648;
 	printf("%s", ft_itoa_base(num, base));
 	return (0);
 }
